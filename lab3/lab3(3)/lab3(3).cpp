@@ -1,20 +1,75 @@
 ﻿#include <stdio.h>
+#include <random>
 #define scanf scanf_s
 int main()
 {
-    int mas[1000]{ 0 }, mas2[1000]{ 0 };
-    int max = 0, n = 0, k = 0;
+    bool boolean = 0;
+    int mas[100]{ 0 }, mas2[100]{ 0 };
+    int num = 0, n = 0, k = 0;
+    long max = -500000;
     printf("Enter the number of the first array elements\n");
-    scanf("%d", &n);
-    printf("Enter the first array elements\n");
-    for (int i = 1; i <= n; i++) {
-        scanf("%d", &mas[i]);
+    boolean = scanf("%d", &n);
+    while (boolean != 1) {
+        printf("Pls try again\n");
+        rewind(stdin);
+        boolean = scanf("%d", &n);
     }
-    printf("Enter the number of the second array elements\n");
-    scanf("%d", &k);
-    printf("Enter the second array elements\n");
-    for (int i = 1; i <= k; i++) {
-        scanf("%d", &mas2[i]);
+    printf("choose how to fill the first array \n1)random\n2)keyboard input\n");
+    scanf("%d", &num);
+    printf("\n");
+    switch (num) {
+
+    case 2:
+        printf("Enter array elements\n");
+        for (int i = 1; i <= n; i++) {
+            printf("Enter the %dth element ", i);
+            boolean = scanf("%d", &mas[i]);
+            while (boolean != 1) {
+                printf("Pls try again\n");
+                rewind(stdin);
+                boolean = scanf("%d", &mas[i]);
+            }
+        }
+        break;
+    case 1:
+        for (int i = 1; i <= n; i++) {
+            mas[i] = (rand() % n * 2) - n;
+            printf("the %dth element of array is %d\n", i, mas[i]);
+        }
+        break;
+    }
+
+
+    printf("\nEnter the number of the second array elements\n");
+    boolean = scanf("%d", &k);
+    while (boolean != 1) {
+        printf("Pls try again\n");
+        rewind(stdin);
+        boolean = scanf("%d", &k);
+    }
+    printf("choose how to fill the array \n1)random\n2)keyboard input\n");
+    scanf("%d", &num);
+    printf("\n");
+    switch (num) {
+
+    case 2:
+        printf("Enter array elements\n");
+        for (int i = 1; i <= n; i++) {
+            printf("Enter the %dth element ", i);
+            boolean = scanf("%d", &mas2[i]);
+            while (boolean != 1) {
+                printf("Pls try again\n");
+                rewind(stdin);
+                boolean = scanf("%d", &mas2[i]);
+            }
+        }
+        break;
+    case 1:
+        for (int i = 1; i <= n; i++) {
+            mas2[i] = (rand() % n * 2) - n;
+            printf("the %dth element of array is %d\n", i, mas2[i]);
+        }
+        break;
     }
     for (int i = 1; i <= n; i++) {
         for (int j = 1; j <= k; j++) {
@@ -25,8 +80,8 @@ int main()
 
         }
     }
+    max = mas[1];
     for (int i = 1; i <= n; i++) {
-        if (i == 1) { max = mas[i]; }
         if (max < mas[i]) {
             max = mas[i];
         }
