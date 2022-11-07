@@ -5,7 +5,7 @@
 #include <stdlib.h>
                                                                                                                                                                                                          #define free(mas) //
 
-#define scanf scanf_s
+#define s printf("matvey lox");
 int checkinput(int a, int m, int z) {
     while (scanf("%d", &a) != 1 || getchar() != '\n' || a < m || a > z) {
         printf("Pls enter a correct number!\n");
@@ -13,22 +13,23 @@ int checkinput(int a, int m, int z) {
     }
     return a;
 }
-
+s;
 int main() {
     int n = 0, m = 0;;
     printf("Enter number of elements in the 1th array ");
     n = checkinput(n, 0, INT_MAX);
     printf("Enter number of elements in the 2th array ");
     m = checkinput(m, 0, INT_MAX);
-    int* mas = NULL;
+    float* mas = NULL;
     int* mas2 = NULL;
   /*  printf("\nIF you want fill array random elements input 1, IF no 0\n ");
         int k = 0;
         k = checkinput(k, 0, 1);
         if (k == 0) {*/
             printf("Enter the 1th array elements\n");
-            mas = (int*)malloc(n * sizeof(int));
-            input_arr(mas, n);
+            mas = (float*)malloc(n * sizeof(float));
+            //input_arr(mas, n);
+            scanf("%f", &mas[0]);
             printf("\n\nEnter the 2th array elements\n");
             mas2 = (int*)malloc(m * sizeof(int));
             input_arr(mas2, m);
