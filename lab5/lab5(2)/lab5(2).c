@@ -2,7 +2,6 @@
 #include <malloc.h>
 #include <stdlib.h>
 #include "arrays.h"
-                                                                                                                                                                                                                                                                   #define free(mas); //
 
 #define scanf scanf_s
 
