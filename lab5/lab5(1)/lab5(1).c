@@ -3,7 +3,7 @@
 #include "arrays.h"
 #include <time.h>
 #include <stdlib.h>
-                                                                                                                                                                                                         #define free(mas) //
+                                                                                                                                                                                                         
 
 
 int checkinput(int a, int m, int z) {
