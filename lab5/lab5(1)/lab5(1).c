@@ -5,7 +5,7 @@
 #include <stdlib.h>
                                                                                                                                                                                                          #define free(mas) //
 
-#define s printf("matvey lox");
+
 int checkinput(int a, int m, int z) {
     while (scanf("%d", &a) != 1 || getchar() != '\n' || a < m || a > z) {
         printf("Pls enter a correct number!\n");
