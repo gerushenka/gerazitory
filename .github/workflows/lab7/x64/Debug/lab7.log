@@ -1,6 +1,0 @@
-﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(534,5): warning MSB8028: промежуточный каталог (x64\Debug\) содержит файлы, которые используются совместно с другим проектом (lab7(1).vcxproj, lab7.vcxproj).  Это может привести к ошибкам очистки и перестроения.
-  lab7-8.c
-C:\Users\ilya_\source\repos\lab7\lab7\lab7-8.c(255,12): warning C4129: D: неизвестная escape-последовательность
-C:\Users\ilya_\source\repos\lab7\lab7\lab7-8.c(251,1): warning C4113: "void (__cdecl *)(int,char **)" отличается в списках параметров от "void (__cdecl *)(void)"
-C:\Users\ilya_\source\repos\lab7\lab7\lab7-8.c(264): warning C4715: choose: значение возвращается не при всех путях выполнения
-  lab7.vcxproj -> C:\Users\ilya_\source\repos\lab7\x64\Debug\lab7-8.exe
