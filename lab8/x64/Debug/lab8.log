@@ -1,0 +1,4 @@
+﻿  lab8.cpp
+C:\Users\ilya_\source\repos\lab7\lab8\lab8.cpp(122,42): error C2664: "void input_string(char *,char **)": невозможно преобразовать аргумент 1 из "char" в "char *"
+C:\Users\ilya_\source\repos\lab7\lab8\lab8.cpp(122,32): message : Для преобразования из целого типа в указатель требуется reinterpret_cast, приведение в стиле С или приведение в стиле функции в круглых скобках
+C:\Users\ilya_\source\repos\lab7\lab8\lab8.cpp(15,6): message : см. объявление "input_string"
