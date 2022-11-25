@@ -13,15 +13,15 @@ int main()
 	a = sqrt(S2);
 	d = a * koren2;
 	if (r * 2 == a) {
-		printf("\na circle can be inscribed in a square");
+		printf("\nA circle can be inscribed in a square");
 		k++;
 	}
 	if (r * 2 == d) {
-		printf("\na square can be inscribed in a circle");
+		printf("\nA square can be inscribed in a circle");
 		k++;
 	}
 	if (k == 0) {
-		printf("\na square can't be inscribed in a circle and a circle can't be inscriibed in a square");
+		printf("\nA square can't be inscribed in a circle and a circle can't be inscriibed in a square");
 
 	}
 	return 0;
