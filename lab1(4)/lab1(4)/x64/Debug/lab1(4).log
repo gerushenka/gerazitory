@@ -1,4 +1,0 @@
-﻿  lab1(4).cpp
-C:\Users\ilya_\source\repos\lab1(4)\lab1(4)\lab1(4).cpp(12,17): warning C4477: "scanf_s": в строке форматирования "%d" требуется аргумент типа "int *", но вариативный аргумент "1" имеет тип "double *"
-  LINK : не найден или не выполнена сборка C:\Users\ilya_\source\repos\1lab\x64\Debug\lab1(4).exe при последней инкрементной компоновке; выполняется полная компоновка
-  lab1(4).vcxproj -> C:\Users\ilya_\source\repos\1lab\x64\Debug\lab1(4).exe
