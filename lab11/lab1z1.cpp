@@ -13,7 +13,7 @@ int main()
 
 	Sb = pi * R * l;
 	Sp = pi * R * (R + l);
-	V = pi * R * R * h * (0.333);
+	V = pi * R * R * h * 0.333;
 	printf("\nLateral surface area = %.3lf\n", Sb);
 	printf("Surface area = %.3lf\n", Sp);
 	printf("Volume = %.3lf", V);
