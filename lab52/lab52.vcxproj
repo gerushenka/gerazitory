@@ -128,7 +128,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="arrays.c" />
-    <ClCompile Include="lab5%282%29.c" />
+    <ClCompile Include="lab52.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="arrays.h" />

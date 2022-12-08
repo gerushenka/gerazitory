@@ -3,7 +3,6 @@
 #include "arrays.h"
 #include <time.h>
 #include <stdlib.h>
-                                                                                                                                                                                                         
 
 
 int checkinput(int a, int m, int z) {
@@ -15,7 +14,8 @@ int checkinput(int a, int m, int z) {
 }
 
 int main() {
-    int n = 0, m = 0;;
+    int n = 0;
+    int m = 0;
     printf("Enter number of elements in the 1th array ");
     n = checkinput(n, 0, INT_MAX);
     printf("Enter number of elements in the 2th array ");
@@ -51,7 +51,7 @@ int main() {
                 y--;
                 del(mas, y, k);
                 j--;
-                mas = (int*)realloc(mas, y * sizeof(int));
+                mas = (int*)realloc(mas, (y+1) * sizeof(int));
             }
         }
     }
