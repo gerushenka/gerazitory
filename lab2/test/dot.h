@@ -12,3 +12,4 @@
 #include "find_word_to_replace.h"
 #include "compress_file.h"
 #include "clear_word.h"
+#define _CRT_SECURE_NO_WARNINGS
