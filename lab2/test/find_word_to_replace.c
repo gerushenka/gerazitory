@@ -6,7 +6,7 @@ void find_words(FILE* file, word_freq** words) {
     (*words) = (word_freq*)calloc(max, sizeof(word_freq));
     char* word;
     word = (char*)calloc(30, sizeof(char));
-    while ((fscanf(file, "%s", word) == 1) && (!feof(file))) {
+    while ((fscanf_s(file, "%s", word) == 1) && (!feof(file))) {
         clear_word(&word);
         int flag = 0;
         for (int i = 0; i < words_amount; i++) {
@@ -17,7 +17,7 @@ void find_words(FILE* file, word_freq** words) {
             }
         }
         if (!flag) {
-            strcpy((*words)[words_amount].word, word);
+            strcpy_s((*words)[words_amount].word,1024, word);
             (*words)[words_amount].amount = 1;
             words_amount++;
         }

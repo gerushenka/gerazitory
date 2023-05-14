@@ -15,7 +15,7 @@ void push(Stack* s, char* word) {
     }
     else {
         s->top++;
-        strcpy(s->word[s->top], word);
+        strcpy_s(s->word[s->top], 1024, word);
     }
 }
 
@@ -25,7 +25,7 @@ void pop(Stack* s) {
         return;
     }
     else {
-        strcpy(s->word[s->top], "0");
+        strcpy_s(s->word[s->top], 1024, "0");
         s->top--;
     }
 }

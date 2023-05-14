@@ -48,7 +48,7 @@ void compressing(FILE* file, Stack* s1, Stack* s2, Stack* s3, Stack* s4) {
 
                     if (strcmp(word, s3->word[s3->top]) == 0) {
                         flag++;
-                        strcpy(word, s4->word[s4->top]);
+                        strcpy_s(word,1024, s4->word[s4->top]);
                         int  len1 = strlen(word);
                         for (int y = 0; y < len1; y++) {
                             s[i - len + y + 1] = word[y];
@@ -68,7 +68,7 @@ void compressing(FILE* file, Stack* s1, Stack* s2, Stack* s3, Stack* s4) {
                     {
                         if (strcmp(word, s4->word[s4->top]) == 0) {
                             flag++;
-                            strcpy(word, s3->word[s3->top]);
+                            strcpy_s(word, 1024, s3->word[s3->top]);
                             int  len1 = strlen(word);
                             s_len = s_len + len1 - len;
                             s[s_len] = '\0';
