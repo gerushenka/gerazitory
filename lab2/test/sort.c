@@ -15,6 +15,7 @@ int compare(const void* a, const void* b) {
     else if (strlen(pa->word) > strlen(pb->word)) {
         return 1;
     }
+    return 0;
 }
 
 void sort_words(word_freq* words) {
