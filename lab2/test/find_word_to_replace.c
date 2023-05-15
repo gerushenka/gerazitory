@@ -26,5 +26,6 @@ void find_words(FILE* file, word_freq** words) {
             (*words) = (word_freq*)realloc((*words), max * sizeof(word_freq));
         }
     }
+    free(word);
 }
 

@@ -9,8 +9,8 @@ int is_full(Stack* s) {
     return s->top == words_amount - 1;
 }
 
-void push(Stack* s, char* word) {
-    if (is_full(s)) {
+void push(Stack** s, char** word) {
+    if (is_full(*s)) {
         printf("Стек полон\n");
     }
     else {
@@ -19,8 +19,8 @@ void push(Stack* s, char* word) {
     }
 }
 
-void pop(Stack* s) {
-    if (is_empty(s)) {
+void pop(Stack** s) {
+    if (is_empty(*s)) {
         printf("Стек пуст\n");
         return;
     }
@@ -47,11 +47,11 @@ void original_stack_inic(Stack* s1, Stack* s2, word_freq* words) {
     int up = words_amount - 1;
     int down = 0;
     while (up != 0 && down != words_amount) {
-        if (strlen(words[down].word) >= 5) {
+        if (wcslen(words[down].word) >= 5) {
             push(s1, words[down].word);
             s1->freq[s1->top] = words[down].amount;
         }
-        if (strlen(words[up].word) < 5) {
+        if (wcslen(words[up].word) < 5) {
             push(s2, words[up].word);
             s2->freq[s2->top] = words[up].amount;
         }
