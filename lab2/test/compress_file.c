@@ -6,10 +6,6 @@ void compressing(FILE* file, Stack* s1, Stack* s2, Stack* s3, Stack* s4) {
     char s[10000];
     FILE* comp;
     fopen_s(&comp, "compressed.txt", "wt+");
-    if (comp == NULL) {
-        printf("error while creating file");
-        exit(1);
-    }
     int top_1 = s1->top;
     int top_2 = s2->top;
     while (s1->freq[top_1] > s2->freq[top_2]) {
@@ -104,7 +100,7 @@ void compressing(FILE* file, Stack* s1, Stack* s2, Stack* s3, Stack* s4) {
         }
         s[s_len] = '\0';
         fputs(s, comp);
+        free(word);
     }
-
     fclose(comp);
 }
