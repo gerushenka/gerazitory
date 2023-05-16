@@ -1,11 +1,11 @@
 #include "compress_file.h"
 extern int fl;
 extern int words_amount;
-void short_long_word(Stack* s1, Stack* s2, Stack* s3, Stack* s4, char** word, int s_len, int* end, char** s, int i, int* flag) {
+void short_long_word(Stack* s1, Stack* s2, Stack* s3, Stack* s4, char** word, int s_len, int* end, char** s, int i, int* flag, int num) {
     int len = wcslen(*word);
     for (int j = 0; j < num; j++) {
-        push(&s3, (&s1)->word[s1->top]);
-        push(&s4, (&s2)->word[s2->top]);
+        push(&s3, &(s1->word[s1->top]));
+        push(&s4, &(s2->word[s2->top]));
         pop(&s1);
         pop(&s2);
         if (strcmp(*word, s3->word[s3->top]) == 0) {
@@ -80,10 +80,10 @@ void compressing(FILE* file, Stack* s1, Stack* s2, Stack* s3, Stack* s4) {
                 if (fl >= 1) {
                     i -= fl;
                 }
-                short_long_word(s1,s2,s3,s4, &word, s_len, &end, &s, i, &flag);
+                short_long_word(s1,s2,s3,s4, &word, s_len, &end, &s, i, &flag, num);
                 for (int j = 0; j < end; j++) {
-                    push(&s1, (&s3)->word[s3->top]);
-                    push(&s2, (&s4)->word[s4->top]);
+                    push(&s1, &(s3->word[s3->top]));
+                    push(&s2, &(s4->word[s4->top]));
                     pop(&s3);
                     pop(&s4);
                     // printf("%d\n", j);
