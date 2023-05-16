@@ -2,6 +2,7 @@
 #include <ctype.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include <wchar.h>
 #include <malloc.h>
 #include <string.h>
 #include <locale.h>
