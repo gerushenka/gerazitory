@@ -26,7 +26,7 @@ void short_long_word(Stack* s1, Stack* s2, Stack* s3, Stack* s4, char** word, in
         }
         else
         {
-            if (wcstrcmp(*word, s4->word[s4->top]) == 0) {
+            if (strcmp(*word, s4->word[s4->top]) == 0) {
                 (*flag)++;
                 strcpy_s(*word, 1024, s3->word[s3->top]);
                 int  len1 = wcslen(*word);
