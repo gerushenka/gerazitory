@@ -2,18 +2,20 @@
 extern int fl;
 extern int words_amount;
 void short_long_word(Stack* s1, Stack* s2, char** word, int s_len, int* end, char** s, int i, int num) {
-    Stack* s3 = NULL;
+    Stack s4 = {-1, 0};
     int flag = 0;
-    Stack *s4 = NULL;
+    Stack s3 = { -1,0 };
+    alloc_memory(&s3);
+    alloc_memory(&s4);
     int len = wcslen(*word);
     for (int j = 0; j < num; j++) {
         push(&s3, &(s1->word[s1->top]));
         push(&s4, &(s2->word[s2->top]));
         pop(&s1);
         pop(&s2);
-        if (strcmp(*word, s3->word[s3->top]) == 0) {
+        if (strcmp(*word, s3.word[s3.top]) == 0) {
             flag++;
-            strcpy_s(*word, 1024, s4->word[s4->top]);
+            strcpy_s(*word, 1024, s4.word[s4.top]);
             int  len1 = wcslen(*word);
             for (int y = 0; y < len1; y++) {
                 (*s)[i - len + y + 1] = (*word)[y];
@@ -29,9 +31,9 @@ void short_long_word(Stack* s1, Stack* s2, char** word, int s_len, int* end, cha
         }
         else
         {
-            if (strcmp(*word, s4->word[s4->top]) == 0) {
+            if (strcmp(*word, s4.word[s4.top]) == 0) {
                 flag++;
-                strcpy_s(*word, 1024, s3->word[s3->top]);
+                strcpy_s(*word, 1024, s3.word[s3.top]);
                 int  len1 = wcslen(*word);
                 s_len = s_len + len1 - len;
                 (*s)[s_len] = '\0';
@@ -50,16 +52,18 @@ void short_long_word(Stack* s1, Stack* s2, char** word, int s_len, int* end, cha
         *end = j + 1;
     }
     for (int j = 0; j < end; j++) {
-        push(&s1, s3->word[s3->top]);
-        push(&s2, s4->word[s4->top]);
-        pop(s3);
-        pop(s4);
+        push(&s1, s3.word[s3.top]);
+        push(&s2, s4.word[s4.top]);
+        pop(&s3);
+        pop(&s4);
         // printf("%d\n", j);
     }
     if (flag == 0) {
-        word = (char*)calloc(30, sizeof(char));
+        *word = (char*)calloc(30, sizeof(char));
         i++;
     }
+    free_mem(&s3);
+    free_mem(&s4);
 }
 void compressing(FILE* file, Stack* s1, Stack* s2) {
     char s[10000];
