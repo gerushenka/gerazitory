@@ -14,8 +14,8 @@ void push(Stack** s, char** word) {
         printf("Стек полон\n");
     }
     else {
-        s->top++;
-        strcpy_s(s->word[s->top], 1024, word);
+        (*s)->top++;
+        strcpy_s((*s)->word[(*s)->top], 1024, word);
     }
 }
 
@@ -25,8 +25,8 @@ void pop(Stack** s) {
         return;
     }
     else {
-        strcpy_s(s->word[s->top], 1024, "0");
-        s->top--;
+        strcpy_s((*s)->word[(*s)->top], 1024, "0");
+        (*s)->top--;
     }
 }
 
