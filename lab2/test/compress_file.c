@@ -1,9 +1,10 @@
 #include "compress_file.h"
 extern int fl;
 extern int words_amount;
-void short_long_word(Stack* s1, Stack* s2, char** word, int s_len, int* end, char** s, int i, int num) {
+void short_long_word(Stack* s1, Stack* s2, char** word, int* end, char** s, int *i, int num) {
     Stack s4 = {-1, 0};
     int flag = 0;
+    int s_len = wcslen(*s);
     Stack s3 = { -1,0 };
     alloc_memory(&s3);
     alloc_memory(&s4);
@@ -18,16 +19,15 @@ void short_long_word(Stack* s1, Stack* s2, char** word, int s_len, int* end, cha
             strcpy_s(*word, 1024, s4.word[s4.top]);
             int  len1 = wcslen(*word);
             for (int y = 0; y < len1; y++) {
-                (*s)[i - len + y + 1] = (*word)[y];
+                (*s)[(*i) - len + y + 1] = (*word)[y];
             }
             s_len = s_len - len + len1;
-            for (int y = i - (len - len1) + 1; y < s_len; y++) {
+            for (int y = (*i) - (len - len1) + 1; y < s_len; y++) {
                 (*s)[y] = (*s)[y + len - len1];
             }
-            i = i - len + len1 + 1;
+            *i = (*i) - len + len1 + 1;
             *end = j + 1;
             *word = (char*)calloc(30, sizeof(char));
-            break;
         }
         else
         {
@@ -41,12 +41,11 @@ void short_long_word(Stack* s1, Stack* s2, char** word, int s_len, int* end, cha
                     (*s)[y] = (*s)[y - len1 + len];
                 }
                 for (int y = 0; y < len1; y++) {
-                    (*s)[i - len + y + 1] = (*word)[y];
+                    (*s)[(*i) - len + y + 1] = (*word)[y];
                 }
-                i = i + len1 - len + 1;
+                *i = (*i) + len1 - len + 1;
                 *end = j + 1;
                 *word = (char*)calloc(30, sizeof(char));
-                break;
             }
         }
         *end = j + 1;
@@ -96,7 +95,7 @@ void compressing(FILE* file, Stack* s1, Stack* s2) {
                 if (fl >= 1) {
                     i -= fl;
                 }
-                short_long_word(s1,s2, &word, s_len, &end, &s, i, num);
+                short_long_word(s1,s2, &word, &end, &s, &i, num);
 
 
             }
