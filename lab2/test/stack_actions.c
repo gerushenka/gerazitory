@@ -1,12 +1,12 @@
 #include "stack_actions.h"
 extern int words_amount;
 
-int is_empty(Stack* s) {
-    return s->top == -1;
+int is_empty(Stack** s) {
+    return (*s)->top == -1;
 }
 
-int is_full(Stack* s) {
-    return s->top == words_amount - 1;
+int is_full(Stack** s) {
+    return (*s)->top == words_amount - 1;
 }
 
 void push(Stack** s, char** word) {

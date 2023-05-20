@@ -29,24 +29,22 @@ void short_long_word(Stack* s1, Stack* s2, char** word, int* end, char** s, int 
             *end = j + 1;
             *word = (char*)calloc(30, sizeof(char));
         }
-        else
-        {
-            if (strcmp(*word, s4.word[s4.top]) == 0) {
-                flag++;
-                strcpy_s(*word, 1024, s3.word[s3.top]);
-                int  len1 = wcslen(*word);
-                s_len = s_len + len1 - len;
-                (*s)[s_len] = '\0';
-                for (int y = s_len - 1; y > i + len1 - len; y--) {
-                    (*s)[y] = (*s)[y - len1 + len];
-                }
-                for (int y = 0; y < len1; y++) {
-                    (*s)[(*i) - len + y + 1] = (*word)[y];
-                }
-                *i = (*i) + len1 - len + 1;
-                *end = j + 1;
-                *word = (char*)calloc(30, sizeof(char));
+        if (strcmp(*word, s4.word[s4.top]) == 0) {
+            flag++;
+            strcpy_s(*word, 1024, s3.word[s3.top]);
+            int  len1 = wcslen(*word);
+            s_len = s_len + len1 - len;
+            (*s)[s_len] = '\0';
+            for (int y = s_len - 1; y > i + len1 - len; y--) {
+                (*s)[y] = (*s)[y - len1 + len];
             }
+            for (int y = 0; y < len1; y++) {
+                (*s)[(*i) - len + y + 1] = (*word)[y];
+            }
+            *i = (*i) + len1 - len + 1;
+            *end = j + 1;
+            *word = (char*)calloc(30, sizeof(char));
+
         }
         *end = j + 1;
     }
@@ -55,7 +53,6 @@ void short_long_word(Stack* s1, Stack* s2, char** word, int* end, char** s, int 
         push(&s2, s4.word[s4.top]);
         pop(&s3);
         pop(&s4);
-        // printf("%d\n", j);
     }
     if (flag == 0) {
         *word = (char*)calloc(30, sizeof(char));
