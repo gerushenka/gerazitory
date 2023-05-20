@@ -13,10 +13,10 @@ int compare_word_freq(const void* a, const void* b) {
         return 1;
     }
 
-    if (wcslen(pa->word) < wcslen(pb->word)) {
+    if (strnlen_S(pa->word, MAX_LEN) < strnlen_s(pb->word, MAX_LEN)) {
         return -1;
     }
-    else if (wcslen(pa->word) > wcslen(pb->word)) {
+    else if (strnlen_s(pa->word, MAX_LEN) > strnlen_s(pb->word, MAX_LEN)) {
         return 1;
     }
 

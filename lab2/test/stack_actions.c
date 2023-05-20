@@ -47,11 +47,11 @@ void original_stack_inic(Stack* s1, Stack* s2, word_freq* words) {
     int up = words_amount - 1;
     int down = 0;
     while (up != 0 && down != words_amount) {
-        if (wcslen(words[down].word) >= 5) {
+        if (strnlen_s(words[down].word, MAX_LEN) >= 5) {
             push(s1, words[down].word);
             s1->freq[s1->top] = words[down].amount;
         }
-        if (wcslen(words[up].word) < 5) {
+        if (strnlen_s(words[up].word, MAX_LEN) < 5) {
             push(s2, words[up].word);
             s2->freq[s2->top] = words[up].amount;
         }

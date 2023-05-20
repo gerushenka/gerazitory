@@ -13,3 +13,5 @@
 #include "find_word_to_replace.h"
 #include "compress_file.h"
 #include "clear_word.h"
+
+#define MAX_LEN 4096

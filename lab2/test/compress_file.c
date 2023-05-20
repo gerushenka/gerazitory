@@ -4,11 +4,11 @@ extern int words_amount;
 void short_long_word(Stack* s1, Stack* s2, char** word, int* end, char** s, int *i, int num) {
     Stack s4 = {-1, 0};
     int flag = 0;
-    int s_len = wcslen(*s);
+    int s_len = strnlen_s(*s, MAX_LEN);
     Stack s3 = { -1,0 };
     alloc_memory(&s3);
     alloc_memory(&s4);
-    int len = wcslen(*word);
+    int len = strnlen_s(*word, MAX_LEN);
     for (int j = 0; j < num; j++) {
         push(&s3, &(s1->word[s1->top]));
         push(&s4, &(s2->word[s2->top]));
@@ -16,8 +16,8 @@ void short_long_word(Stack* s1, Stack* s2, char** word, int* end, char** s, int 
         pop(&s2);
         if (strcmp(*word, s3.word[s3.top]) == 0) {
             flag++;
-            strcpy_s(*word, 1024, s4.word[s4.top]);
-            int  len1 = wcslen(*word);
+            strcpy_s(*word, MAX_LEN, s4.word[s4.top]);
+            int  len1 = strnlen_s(*word, MAX_LEN);
             for (int y = 0; y < len1; y++) {
                 (*s)[(*i) - len + y + 1] = (*word)[y];
             }
@@ -31,8 +31,8 @@ void short_long_word(Stack* s1, Stack* s2, char** word, int* end, char** s, int 
         }
         if (strcmp(*word, s4.word[s4.top]) == 0) {
             flag++;
-            strcpy_s(*word, 1024, s3.word[s3.top]);
-            int  len1 = wcslen(*word);
+            strcpy_s(*word, MAX_LEN, s3.word[s3.top]);
+            int  len1 = strnlen_s(*word, MAX_LEN);
             s_len = s_len + len1 - len;
             (*s)[s_len] = '\0';
             for (int y = s_len - 1; y > i + len1 - len; y--) {
@@ -43,7 +43,7 @@ void short_long_word(Stack* s1, Stack* s2, char** word, int* end, char** s, int 
             }
             *i = (*i) + len1 - len + 1;
             *end = j + 1;
-            *word = (char*)calloc(30, sizeof(char));
+            *word = (char*)calloc(MAX_LEN, sizeof(char));
 
         }
         *end = j + 1;
@@ -55,7 +55,7 @@ void short_long_word(Stack* s1, Stack* s2, char** word, int* end, char** s, int 
         pop(&s4);
     }
     if (flag == 0) {
-        *word = (char*)calloc(30, sizeof(char));
+        *word = (char*)calloc(MAX_LEN, sizeof(char));
         i++;
     }
     free_mem(&s3);
@@ -76,10 +76,10 @@ void compressing(FILE* file, Stack* s1, Stack* s2) {
     int num = s1->top - top_1;
 
     while (!feof(file)) {
-        fgets(s, 9999, file);
+        fgets(s, MAX_LEN, file);
         int i = 0;
-        char* word = (char*)calloc(30, sizeof(char));
-        int s_len = wcslen(s);
+        char* word = (char*)calloc(MAX_LEN, sizeof(char));
+        int s_len = strnlen_s(s, MAX_LEN);
         int letter = 0;
         int end = 0;
         while (s[i] != '\n' && s[i] != '\0') {
