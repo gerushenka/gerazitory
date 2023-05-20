@@ -89,9 +89,6 @@ void compressing(FILE* file, Stack* s1, Stack* s2) {
                 letter = -1;
                 fl = 0;
                 clear_word(&word);
-                if (fl >= 1) {
-                    i -= fl;
-                }
                 short_long_word(s1,s2, &word, &end, &s, &i, num);
 
 
