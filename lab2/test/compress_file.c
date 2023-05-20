@@ -4,11 +4,11 @@ extern int words_amount;
 void short_long_word(Stack* s1, Stack* s2, char** word, int* end, char** s, int *i, int num) {
     Stack s4 = {-1, 0};
     int flag = 0;
-    int s_len = strnlen_s(*s, MAX_LEN);
+    int s_len = strnlen_s(&s, MAX_LEN);
     Stack s3 = { -1,0 };
     alloc_memory(&s3);
     alloc_memory(&s4);
-    int len = strnlen_s(*word, MAX_LEN);
+    int len = strnlen_s(&word, MAX_LEN);
     for (int j = 0; j < num; j++) {
         push(&s3, &(s1->word[s1->top]));
         push(&s4, &(s2->word[s2->top]));
